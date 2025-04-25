@@ -1,0 +1,50 @@
+// This is the skeleton for a modern cryptocurrency tracker website based on your specs // You'll need to expand each section into its respective component and API integration
+
+import React from 'react'; import { Card, CardContent } from '@/components/ui/card'; import { Button } from '@/components/ui/button'; import { Toggle } from '@/components/ui/toggle'; import { Sun, Moon } from 'lucide-react'; import { useState, useEffect } from 'react';
+
+export default function CryptoTracker() { const [darkMode, setDarkMode] = useState(false); const [coins, setCoins] = useState([]);
+
+// Example auto-refresh every 30 seconds useEffect(() => { const fetchData = () => { // fetch from crypto API }; fetchData(); const interval = setInterval(fetchData, 30000); return () => clearInterval(interval); }, []);
+
+return ( <div className={darkMode ? 'dark' : ''}> <header className="p-4 flex justify-between items-center bg-gray-100 dark:bg-gray-900"> <h1 className="text-xl font-bold">Crypto Tracker</h1> <div className="flex items-center gap-4"> <Toggle onClick={() => setDarkMode(!darkMode)}> {darkMode ? <Sun /> : <Moon />} </Toggle> <span>Developed by Satyam Hari</span> </div> </header>
+
+<main className="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+    <Card>
+      <CardContent>
+        {/* Market Overview Component */}
+        {/* List of cryptocurrencies with 24h change, market cap, etc. */}
+      </CardContent>
+    </Card>
+
+    <Card>
+      <CardContent>
+        {/* Currency Converter */}
+        {/* Search + convert currencies */}
+        <Button>Search</Button>
+      </CardContent>
+    </Card>
+
+    <Card>
+      <CardContent>
+        {/* Detailed Coin Page */}
+        {/* Full chart + news */}
+      </CardContent>
+    </Card>
+
+    <Card>
+      <CardContent>
+        {/* User Preferences */}
+        {/* Favorite coins, dark mode toggle, notifications */}
+      </CardContent>
+    </Card>
+  </main>
+
+  <footer className="p-4 text-center text-sm text-gray-500 dark:text-gray-400">
+    Satyam: <a href="https://www.instagram.com/satyam_7_hari" target="_blank">Instagram</a> |
+    Shivam: <a href="https://www.instagram.com/shivam_hari_st" target="_blank">Instagram</a> |
+    Mohit: <a href="https://www.instagram.com/mohit_verma_mkv__" target="_blank">Instagram</a>
+  </footer>
+</div>
+
+); }
+
